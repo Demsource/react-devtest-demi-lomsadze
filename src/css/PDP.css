@@ -1,0 +1,134 @@
+.pdp .no-product {
+  margin-top: 50px;
+}
+
+.pdp .single-product-wrapper h1,
+.pdp .single-product-wrapper h2,
+.pdp .single-product-wrapper h3,
+.pdp .single-product-wrapper h4 {
+  font-size: x-large;
+}
+
+.pdp .single-product-wrapper {
+  display: flex;
+  margin: 50px 0;
+  height: 75vh;
+  text-align: start;
+}
+
+.pdp .single-product-wrapper .gallery {
+  display: flex;
+  width: 60%;
+}
+
+.pdp .single-product-wrapper .gallery ul.images {
+  width: 5%;
+  margin-right: 1%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.pdp .single-product-wrapper .gallery ul.images::-webkit-scrollbar {
+  display: none;
+}
+
+.pdp .single-product-wrapper .gallery ul.images li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
+  margin-bottom: 16.666666667%;
+  width: 100%;
+  height: 2.4vw;
+  overflow: hidden;
+}
+
+.pdp .single-product-wrapper .gallery ul.images img {
+  width: 100%;
+}
+
+.pdp .single-product-wrapper .gallery .image-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94%;
+  overflow: hidden;
+}
+
+.pdp .single-product-wrapper .gallery .image-preview img {
+  width: 100%;
+}
+
+.pdp .single-product-wrapper .gallery .image-preview .out-of-stock {
+  cursor: not-allowed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  color: #8d8f9a;
+  font-size: x-large;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.pdp .hide {
+  display: none;
+}
+
+.pdp .single-product-wrapper .details {
+  margin-left: 5%;
+  width: 35%;
+  word-break: break-word;
+}
+
+.pdp .single-product-wrapper .details h1 {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.pdp .single-product-wrapper .details h2 {
+  margin-bottom: 20px;
+}
+
+.pdp .single-product-wrapper .details h3 {
+  font-family: Roboto Condensed;
+  font-style: normal;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.pdp .single-product-wrapper .details .price h4 {
+  font-family: Roboto Condensed;
+  font-style: normal;
+  margin-bottom: 10px;
+}
+
+.pdp .single-product-wrapper .details #add-to-cart {
+  cursor: pointer;
+  background-color: #5ece7b;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+.pdp .single-product-wrapper .details #add-to-cart.disabled {
+  cursor: not-allowed;
+  background-color: #a6a6a6;
+  opacity: 0.5;
+}
+
+.pdp .single-product-wrapper .details .desc {
+  font-weight: bold;
+  line-height: 159.96%;
+}
+
+.pdp #note {
+  color: orangered;
+  font-weight: bold;
+}

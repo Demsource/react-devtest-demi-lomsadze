@@ -1,0 +1,47 @@
+.attributes ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.attributes ul li {
+  cursor: pointer;
+  border: 2px solid black;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+}
+.attributes ul li.swatch {
+  padding: 0;
+  height: 40px;
+  width: 40px;
+}
+.cart-overlay-products .attributes ul li {
+  display: flex;
+  border: 1px solid black;
+  font-size: .75vw;
+  padding: 5px;
+  margin: 0 !important;
+}
+.cart-overlay-products .attributes ul li:first-child {
+  margin-right: 5px !important;
+}
+
+.attributes ul li.text.selected {
+  background-color: black;
+  color: white;
+}
+.attributes ul li.swatch.selected {
+  border-color: transparent;
+}
+
+.attributes ul li.disabled {
+  color: #a6a6a6;
+  cursor: not-allowed;
+}
+.attributes ul li.text.disabled {
+  border: 2px solid #a6a6a6;
+}
+.attributes ul li.swatch.disabled {
+  opacity: 0.3;
+}

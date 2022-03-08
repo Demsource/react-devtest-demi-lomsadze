@@ -1,0 +1,77 @@
+.cart {
+  text-align: start;
+}
+
+.cart h1 {
+  font-size: x-large;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 50px 0;
+}
+
+.cart .cart-product-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart .cart-product-wrapper .cp-90 {
+  width: 90%;
+}
+
+.cart .cart-product-wrapper .extra-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 10%;
+}
+
+.cart .cart-product-wrapper .extra-actions img {
+  cursor: pointer;
+  width: 20%;
+}
+
+.cart .cart-product-wrapper .extra-actions img.view {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(14%) saturate(5%)
+    hue-rotate(37deg) brightness(89%) contrast(85%);
+}
+.cart .cart-product-wrapper .extra-actions img.view:hover {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(82%) saturate(371%)
+    hue-rotate(72deg) brightness(101%) contrast(87%);
+}
+
+.cart .cart-product-wrapper .extra-actions img.delete {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(14%) saturate(5%)
+    hue-rotate(37deg) brightness(89%) contrast(85%);
+}
+.cart .cart-product-wrapper .extra-actions img.delete:hover {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(77%) saturate(7043%)
+    hue-rotate(2deg) brightness(102%) contrast(107%);
+}
+
+.cart .cart-checkout {
+  display: flex;
+  margin: 50px 0 100px 0;
+  font-weight: bold;
+}
+
+.cart .cart-checkout .sum {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 2px;
+  width: 90%;
+  margin-right: 2.5%;
+}
+
+.cart .cart-checkout .btn {
+  cursor: pointer;
+  background-color: #5ece7b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2vw;
+  padding: 5px 0;
+  width: 10%;
+}
