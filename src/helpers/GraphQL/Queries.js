@@ -23,6 +23,7 @@ export const LOAD_CATEGORY = gql`
       name
       products {
         id
+        brand
         inStock
         gallery
         name
@@ -32,6 +33,16 @@ export const LOAD_CATEGORY = gql`
             symbol
           }
           amount
+        }
+        attributes {
+          id
+          name
+          type
+          items {
+            id
+            displayValue
+            value
+          }
         }
       }
     }

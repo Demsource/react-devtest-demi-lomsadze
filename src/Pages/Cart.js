@@ -5,7 +5,6 @@ import CartProduct from "../Components/CartProduct";
 import withRouter from "../helpers/withRouter";
 import { currencyContext } from "../Contexts/ActiveCurrencyStateProvider";
 import totalsPriceSum from "../helpers/totalsPriceSum";
-import CartProductExtraActions from "../Components/CartProductExtraActions";
 import EmptyCart from "../Components/EmptyCart";
 import totalsAmountSum from "../helpers/totalsAmountSum";
 
@@ -46,25 +45,15 @@ class Cart extends Component {
 
                 const CartProducts = productsCart?.map((product, i) => {
                   return (
-                    <div
-                      className="cart-product-wrapper"
-                      key={`${product.id}-${i}`}
-                    >
-                      <div className="cp-90">
-                        <CartProduct
-                          product={product}
-                          updateCartProduct={updateCartProduct}
-                          groupSelections={groupSelections}
-                          currencySymbol={currencyValue.activeCurrency.symbol}
-                        />
-                      </div>
-                      <CartProductExtraActions
-                        navigate={navigate}
-                        id={product.id}
-                        cartProductId={product.cartProductId}
-                        deleteCartProduct={deleteCartProduct}
-                      />
-                    </div>
+                    <CartProduct
+                      key={"product-item-" + i}
+                      navigate={navigate}
+                      product={product}
+                      updateCartProduct={updateCartProduct}
+                      groupSelections={groupSelections}
+                      currencySymbol={currencyValue.activeCurrency.symbol}
+                      deleteCartProduct={deleteCartProduct}
+                    />
                   );
                 });
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import withProduct from "../helpers/GraphQL/withProduct";
 import "../css/PDP.css";
 import Attribute from "./Attribute";
+import DOMPurify from "dompurify";
 
 class Product extends Component {
   constructor(props) {
@@ -10,11 +11,15 @@ class Product extends Component {
     this.state = {
       imagePreviewIndex: 0,
       productOptions: {},
+      noteAttrSelection: false,
+      productAdded: false,
     };
 
     this.updateProductOptions = this.updateProductOptions.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.isValidatedAttrFields = this.isValidatedAttrFields.bind(this);
+    this.deleteAttrNote = this.deleteAttrNote.bind(this);
+    this.notifyProductAddition = this.notifyProductAddition.bind(this);
   }
 
   componentDidMount() {
@@ -36,7 +41,6 @@ class Product extends Component {
         brand,
         name,
         price,
-        totalPrice: price,
         currency,
         ...this.state.productOptions,
         amount: 1,
@@ -48,7 +52,7 @@ class Product extends Component {
         },
       };
       this.props.addToProductsCart(product);
-      this.props.navigate("/cart");
+      this.notifyProductAddition();
     }
   }
 
@@ -60,9 +64,23 @@ class Product extends Component {
     return !allSelection.includes(false);
   }
 
+  deleteAttrNote() {
+    this.setState({ noteAttrSelection: false });
+  }
+
+  notifyProductAddition() {
+    this.setState({ productAdded: true });
+
+    setTimeout(() => {
+      this.setState({ productAdded: false });
+    }, 1000);
+  }
+
   render() {
     const { currentCurrency, gqlProps } = this.props;
     const product = gqlProps?.data?.product;
+
+    const safeDescriptionHTML = DOMPurify.sanitize(product?.description);
 
     if (gqlProps?.loading) {
       return <div>loading...</div>;
@@ -87,9 +105,6 @@ class Product extends Component {
                   }}
                 >
                   <img src={imageLink} alt={"product: " + i} />
-                  <div
-                    className={`${!product?.inStock ? "out-of-stock" : "hide"}`}
-                  ></div>
                 </li>
               );
             })}
@@ -99,9 +114,11 @@ class Product extends Component {
               src={product?.gallery[this.state.imagePreviewIndex]}
               alt="product preview"
             />
-            <div className={`${!product?.inStock ? "out-of-stock" : "hide"}`}>
-              <p className="outstock-text">out of stock</p>
-            </div>
+            {!product?.inStock && (
+              <div className="out-of-stock">
+                <p className="outstock-text">out of stock</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="details">
@@ -115,6 +132,7 @@ class Product extends Component {
                 inStock={product?.inStock}
                 selection={this.state.productOptions}
                 updateSelection={this.updateProductOptions}
+                deleteAttrNote={this.deleteAttrNote}
               />
             ))}
           </div>
@@ -128,14 +146,16 @@ class Product extends Component {
                 )[0]?.amount}
             </h4>
           </div>
+          {this.state.productAdded && (
+            <strong id="added">Product has been added to the cart</strong>
+          )}
           <div
             id="add-to-cart"
             className={!product?.inStock ? "disabled" : ""}
             onClick={() => {
               if (product?.inStock) {
-                const noteEl = document.getElementById("note");
                 if (this.isValidatedAttrFields()) {
-                  noteEl && noteEl.remove();
+                  this.deleteAttrNote();
 
                   const price = product?.prices?.filter(
                     (price) => price?.currency?.label === currentCurrency?.label
@@ -150,22 +170,19 @@ class Product extends Component {
                     product?.inStock
                   );
                 } else {
-                  !noteEl &&
-                    document
-                      .getElementById("add-to-cart")
-                      .insertAdjacentHTML(
-                        "afterend",
-                        '<strong id="note">Please select an attribute/attributes<strong>'
-                      );
+                  this.setState({ noteAttrSelection: true });
                 }
               }
             }}
           >
             ADD TO CART
           </div>
+          {this.state.noteAttrSelection && (
+            <strong id="note">Please select an attribute/attributes</strong>
+          )}
           <div
             className="desc"
-            dangerouslySetInnerHTML={{ __html: product?.description }}
+            dangerouslySetInnerHTML={{ __html: safeDescriptionHTML }}
           ></div>
         </div>
       </div>

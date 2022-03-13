@@ -52,7 +52,6 @@ export default class AttributeItem extends Component {
                 : ""
             }
             ${isSelected ? "selected" : ""}`}
-            style={{ backgroundColor: item?.value }}
             onClick={() => {
               if (
                 inStock &&
@@ -63,7 +62,12 @@ export default class AttributeItem extends Component {
                 clickHandler(data, item);
               }
             }}
-          ></li>
+          >
+            <div
+              className="color-block"
+              style={{ backgroundColor: item?.value }}
+            ></div>
+          </li>
         );
       default:
         return "No Attribute";

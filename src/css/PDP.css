@@ -76,9 +76,6 @@
   font-weight: bolder;
   text-transform: uppercase;
 }
-.pdp .hide {
-  display: none;
-}
 
 .pdp .single-product-wrapper .details {
   margin-left: 5%;
@@ -128,7 +125,16 @@
   line-height: 159.96%;
 }
 
+.pdp .single-product-wrapper .details .desc ul {
+  list-style-type: disc;
+}
+
 .pdp #note {
   color: orangered;
+  font-weight: bold;
+}
+
+.pdp #added {
+  color: #5ece7b;
   font-weight: bold;
 }

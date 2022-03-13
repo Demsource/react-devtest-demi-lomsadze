@@ -32,7 +32,6 @@ export default class ProductsCartStateProvider extends Component {
           return {
             ...product,
             amount: product.amount + 1,
-            totalPrice: product.totalPrice + addedProduct.price,
           };
         } else {
           return product;
@@ -76,7 +75,6 @@ export default class ProductsCartStateProvider extends Component {
           ...inStateProduct,
           currency: currencyLabel,
           price: basePrice,
-          totalPrice: basePrice * inStateProduct.amount,
         };
       }),
     }));

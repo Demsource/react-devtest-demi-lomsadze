@@ -44,21 +44,25 @@ header .actions li.currencies .active-currency img {
   margin: 5px 0 0 5px;
 }
 
-header li.currencies .currencies-list {
+header li.currencies ul.currencies-list {
   position: absolute;
-  flex-direction: column;
-  align-items: flex-start;
+  display: none;
   top: 100%;
   left: -20%;
-  width: 150%;
   background-color: white;
   box-shadow: 0px 4px 35px rgba(114, 114, 114, 0.3);
-  padding: 10px;
+  text-align: start;
+  width: max-content;
   z-index: 9 !important;
 }
 
-header li.currencies .currencies-list li:not(:last-child) {
-  margin-bottom: 20px;
+header li.currencies ul.currencies-list li {
+  display: block;
+  padding: 15px 10px;
+}
+
+header li.currencies ul.currencies-list li:hover {
+  background: rgba(57, 55, 72, 0.22);
 }
 
 header {
@@ -118,6 +122,15 @@ header .cart-overlay p {
 
 header .cart-overlay p.total-items {
   margin: 10px 0;
+}
+
+header .cart-overlay .cart-overlay-products {
+  display: flex;
+  flex-direction: column;
+}
+
+header .cart-overlay .cart-overlay-products .cp-90 {
+  width: 90%;
 }
 
 header .cart-overlay .cart-overlay-products .no-products {

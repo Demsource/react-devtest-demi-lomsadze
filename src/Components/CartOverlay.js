@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../css/CartProductExtraActions.css";
 import totalsAmountSum from "../helpers/totalsAmountSum";
 import totalsPriceSum from "../helpers/totalsPriceSum";
 import CartProduct from "./CartProduct";
@@ -10,8 +11,12 @@ export default class CartOverlay extends Component {
       location,
       cartProducts,
       updateCartProduct,
+      deleteCartProduct,
       resetCartProducts,
       activeCurrency,
+      hiddenCartOverlay,
+      toggleCartOverlay,
+      hideActions,
     } = this.props;
 
     return (
@@ -21,7 +26,7 @@ export default class CartOverlay extends Component {
           alt="cart icon"
           onClick={() =>
             location.pathname !== "/cart"
-              ? this.props.toggleCartOverlay()
+              ? toggleCartOverlay()
               : navigate("/cart")
           }
         />
@@ -30,16 +35,16 @@ export default class CartOverlay extends Component {
             className="cart-products-count"
             onClick={() =>
               location.pathname !== "/cart"
-                ? this.props.toggleCartOverlay()
+                ? toggleCartOverlay()
                 : navigate("/cart")
             }
           >
-            <span>{cartProducts.length}</span>
+            <span>{totalsAmountSum(cartProducts)}</span>
           </div>
         ) : null}
         <div
           className="cart-overlay"
-          style={{ display: this.props.hiddenCartOverlay ? "none" : "flex" }}
+          style={{ display: hiddenCartOverlay ? "none" : "flex" }}
         >
           <p className="total-items">
             <strong>My bag,</strong>{" "}
@@ -49,13 +54,16 @@ export default class CartOverlay extends Component {
             {cartProducts.length ? (
               cartProducts
                 .slice(0, 3)
-                .map((product) => (
+                .map((product, i) => (
                   <CartProduct
-                    key={product.cartProductId}
+                    key={"product-item-" + i}
+                    navigate={navigate}
                     product={product}
                     updateCartProduct={updateCartProduct}
                     overlayView={true}
                     currencySymbol={activeCurrency.symbol}
+                    deleteCartProduct={deleteCartProduct}
+                    hideActions={hideActions}
                   />
                 ))
             ) : (
@@ -73,7 +81,7 @@ export default class CartOverlay extends Component {
               <div
                 className="btn view-bag"
                 onClick={() => {
-                  this.props.hideActions();
+                  hideActions();
                   setTimeout(() => {
                     navigate("/cart");
                   }, 100);

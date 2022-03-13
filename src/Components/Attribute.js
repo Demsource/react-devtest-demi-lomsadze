@@ -12,7 +12,7 @@ export class Attribute extends Component {
   }
 
   clickHandler(data, item) {
-    document.getElementById("note")?.remove();
+    this.props?.deleteAttrNote && this.props?.deleteAttrNote();
     this.props.updateSelection({
       ...this.props.selection,
       [data.id]: item.displayValue,
@@ -65,20 +65,18 @@ export class Attribute extends Component {
                     overlayView={overlayView}
                   />
                 ))
-              : cutOverlayViewItems(data.items, selection).map(
-                  (item, i) => (
-                    <AttributeItem
-                      key={`attribute-${i}`}
-                      selection={selection}
-                      item={item}
-                      data={data}
-                      inStock={inStock}
-                      existsCombination={existsCombination}
-                      clickHandler={this.clickHandler}
-                      overlayView={overlayView}
-                    />
-                  )
-                )
+              : cutOverlayViewItems(data.items, selection).map((item, i) => (
+                  <AttributeItem
+                    key={`attribute-${i}`}
+                    selection={selection}
+                    item={item}
+                    data={data}
+                    inStock={inStock}
+                    existsCombination={existsCombination}
+                    clickHandler={this.clickHandler}
+                    overlayView={overlayView}
+                  />
+                ))
             : null}
         </ul>
       </>

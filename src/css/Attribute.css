@@ -12,14 +12,24 @@
   margin: 0 10px 10px 0;
 }
 .attributes ul li.swatch {
+  border-color: #a6a6a6;
+  border-width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   height: 40px;
   width: 40px;
 }
+.attributes ul li.swatch .color-block {
+  height: 90%;
+  width: 90%;
+}
 .cart-overlay-products .attributes ul li {
+  border-width: 1px !important;
   display: flex;
   border: 1px solid black;
-  font-size: .75vw;
+  font-size: 0.75vw;
   padding: 5px;
   margin: 0 !important;
 }
@@ -32,7 +42,8 @@
   color: white;
 }
 .attributes ul li.swatch.selected {
-  border-color: transparent;
+  border-color: #5ece7b;
+  border-width: 2px;
 }
 
 .attributes ul li.disabled {

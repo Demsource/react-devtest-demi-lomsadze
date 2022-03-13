@@ -9,7 +9,6 @@ export default function isEqual(prevObject, newObject) {
     if (
       key !== "amount" && // for comparing procucts
       key !== "cartProductId" && // for comparing procucts
-      key !== "totalPrice" && // for comparing procucts
       key !== "payload" && // for comparing procucts
       prevObject[key] !== newObject[key]
     ) {

@@ -93,6 +93,7 @@ class Header extends Component {
                 productsCart,
                 updateCartProductsCurrency,
                 updateCartProduct,
+                deleteCartProduct,
                 resetCartProducts,
               } = productsCartValue;
 
@@ -127,6 +128,7 @@ class Header extends Component {
                             cartProducts={productsCart}
                             updateCartProduct={updateCartProduct}
                             resetCartProducts={resetCartProducts}
+                            deleteCartProduct={deleteCartProduct}
                           />
                         </div>
                         {!this.state.hiddenCartOverlay && (

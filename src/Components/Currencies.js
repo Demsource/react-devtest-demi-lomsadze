@@ -30,7 +30,7 @@ export class Currencies extends Component {
         </div>
         <ul
           className="currencies-list"
-          style={{ display: this.props.hiddenCurrencies ? "none" : "flex" }}
+          style={{ display: this.props.hiddenCurrencies ? "none" : "block" }}
         >
           {gqlProps.data.currencies.map(({ label, symbol }) => (
             <li

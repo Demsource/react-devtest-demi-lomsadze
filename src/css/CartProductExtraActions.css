@@ -1,0 +1,33 @@
+.cp-extra-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 10%;
+}
+
+.cp-extra-actions img {
+  cursor: pointer;
+  width: 20%;
+}
+.cart-overlay-products .cp-extra-actions img {
+  width: 50%;
+}
+
+.cp-extra-actions img.view {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(14%) saturate(5%)
+    hue-rotate(37deg) brightness(89%) contrast(85%);
+}
+.cp-extra-actions img.view:hover {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(82%) saturate(371%)
+    hue-rotate(72deg) brightness(101%) contrast(87%);
+}
+
+.cp-extra-actions img.delete {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(14%) saturate(5%)
+    hue-rotate(37deg) brightness(89%) contrast(85%);
+}
+.cp-extra-actions img.delete:hover {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(77%) saturate(7043%)
+    hue-rotate(2deg) brightness(102%) contrast(107%);
+}
