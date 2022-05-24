@@ -41,6 +41,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "babel-loader": "^7",
+    "webpack": "^5.72.1",
     "yarn-audit-fix": "^9.3.1"
   }
 }
